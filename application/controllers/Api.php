@@ -15,6 +15,7 @@ class Api extends CI_Controller {
 		$this->load->view('index.php');
 	}
 
+	//Función encargada de crear mesas
 	public function createTable()
 	{
 
@@ -53,6 +54,7 @@ class Api extends CI_Controller {
 
 	}
 
+	//Función encargada de crear reservas
 	public function createReservation()
 	{
 
@@ -94,7 +96,7 @@ class Api extends CI_Controller {
 
 	}
 
-
+	//Función encargada de eliminar mesas
 	public function deleteTable()
 	{
 
@@ -115,8 +117,7 @@ class Api extends CI_Controller {
 
 	}
 
-	// REVISAR DESDE AQUI
-
+	//Función encargada de comprobar las mesas disponibles para las cantidad de personas y fecha enviada
 	public function checkAvailability()
 	{
 
@@ -143,7 +144,7 @@ class Api extends CI_Controller {
 			$checkAvailability = $this->api_model->checkAvailability($reservations, $personas); //Seleccionamos las mesas disponibles
 
 			if($checkAvailability){
-				
+
 				foreach ($checkAvailability as $row)
 				{
 					$result[]= $row->nombre; //Guardamos las mesas disponibles en un array
@@ -161,6 +162,7 @@ class Api extends CI_Controller {
 
 	}
 
+	//Función encargada de comprobar la fecha recibida
 	function checkFormatDate($fecha)
 	{
 
@@ -175,6 +177,7 @@ class Api extends CI_Controller {
 		
 	}
 
+	//Función encargada de eliminar reservas
 	public function deleteReservation()
 	{
 
